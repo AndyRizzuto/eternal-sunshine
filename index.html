@@ -404,6 +404,25 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
+        /* ── SECTION PHOTOS ────────────────────────────────── */
+        .section-image {
+            display: block;
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            object-position: center;
+            margin: 30px 0;
+            border: 1px solid rgba(201, 167, 96, 0.5);
+            box-shadow: 0 4px 24px rgba(61, 28, 40, 0.18);
+            filter: sepia(10%) saturate(90%) brightness(0.97);
+            transition: filter 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .section-image:hover {
+            filter: sepia(4%) saturate(100%) brightness(1.01);
+            box-shadow: 0 6px 32px rgba(61, 28, 40, 0.26);
+        }
+
         /* ── POEM DIVIDER ───────────────────────────────────── */
         .poem-divider {
             text-align: center;
@@ -540,11 +559,7 @@
             <p class="section-subtitle">Finding beauty and meaning in natural cycles</p>
         </div>
 
-        <div class="image-placeholder">
-            <span class="img-label">Section Image</span>
-            Pressed autumn leaves arranged artistically
-            <p class="img-suggestion">Suggested: warm golden-hour photograph of autumn leaves — devotional, peaceful</p>
-        </div>
+        <img class="section-image" src="images/autumn-leaves.svg" alt="Golden autumn leaves glowing in warm afternoon light">
 
         <div class="poem-container">
             <h3 class="poem-title">Colors of Fall</h3>
@@ -601,11 +616,7 @@ The purest of art.</div>
             </div>
         </div>
 
-        <div class="image-placeholder">
-            <span class="img-label">Atmospheric Image</span>
-            Geese in V formation against a soft autumn sky
-            <p class="img-suggestion">Suggested: minimalist photograph of geese in formation — quiet sense of wonder and divine order</p>
-        </div>
+        <img class="section-image" src="images/geese-formation.svg" alt="Geese flying in V formation against an autumn sky">
 
         <div class="poem-container">
             <h3 class="poem-title">Spring's Vow</h3>
@@ -681,11 +692,7 @@ I give thanks when I pray</div>
             <div class="poem-date">— 1998 —</div>
         </div>
 
-        <div class="image-placeholder">
-            <span class="img-label">Hope Through Difficulty</span>
-            Soft light breaking through storm clouds
-            <p class="img-suggestion">Suggested: golden light through stained glass or parting storm clouds — spiritual and uplifting</p>
-        </div>
+        <img class="section-image" src="images/light-through-clouds.svg" alt="Golden light breaking through storm clouds">
 
         <div class="poem-container">
             <h3 class="poem-title">Walk On</h3>
@@ -779,11 +786,7 @@ What simply counts, is how my time is spent</div>
             <div class="poem-date">— 1998 —</div>
         </div>
 
-        <div class="image-placeholder">
-            <span class="img-label">Time &amp; Reflection</span>
-            Candles burning softly in a quiet space
-            <p class="img-suggestion">Suggested: votive candles in a church or chapel — contemplative, devotional atmosphere</p>
-        </div>
+        <img class="section-image" src="images/votive-candles.svg" alt="Votive candles burning softly in a chapel">
 
         <div class="poem-container">
             <h3 class="poem-title">Duality</h3>
@@ -856,11 +859,7 @@ cannot die, and through our trials we'll gain.</div>
             </div>
         </div>
 
-        <div class="image-placeholder">
-            <span class="img-label">Memory &amp; Presence</span>
-            Warm light through a window
-            <p class="img-suggestion">Suggested: window light with a rosary or small devotional object on the sill — quiet, tender mood</p>
-        </div>
+        <img class="section-image" src="images/window-light.svg" alt="Warm morning light falling through a window">
 
         <div class="poem-container">
             <h3 class="poem-title">My Miracle</h3>
@@ -973,11 +972,7 @@ But union of souls was never shared.</div>
             <div class="poem-date">— October, 1998 —</div>
         </div>
 
-        <div class="image-placeholder">
-            <span class="img-label">Faded Beauty</span>
-            Dried flowers and vintage lace
-            <p class="img-suggestion">Suggested: dried flowers resting on aged lace — softly melancholy, the passage of time</p>
-        </div>
+        <img class="section-image" src="images/dried-flowers-lace.svg" alt="Dried flowers resting on aged vintage lace">
 
         <div class="poem-container">
             <h3 class="poem-title">Embryonic Appeal</h3>

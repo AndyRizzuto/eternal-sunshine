@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420">
+  <defs>
+    <linearGradient id="roomBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a1e14"/>
+      <stop offset="100%" stop-color="#1a1208"/>
+    </linearGradient>
+    <linearGradient id="windowLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8f0d0"/>
+      <stop offset="50%" stop-color="#f0d880"/>
+      <stop offset="100%" stop-color="#e8c860"/>
+    </linearGradient>
+    <radialGradient id="floorGlow" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#d4a030" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#d4a030" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wallGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#c88028" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#c88028" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="lightBlur"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="softBlur"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="frameBlur"><feGaussianBlur stdDeviation="1.5"/></filter>
+  </defs>
+
+  <!-- Dark room interior -->
+  <rect width="1200" height="420" fill="url(#roomBg)"/>
+
+  <!-- Window glow diffusing onto surrounding wall -->
+  <rect x="300" y="0" width="600" height="420" fill="url(#wallGlow)" filter="url(#softBlur)"/>
+
+  <!-- Bright window opening -->
+  <rect x="430" y="30" width="340" height="280" fill="url(#windowLight)"/>
+
+  <!-- Light spilling onto floor below window -->
+  <polygon points="430,310 770,310 900,420 300,420" fill="#d4a030" opacity="0.22" filter="url(#lightBlur)"/>
+  <polygon points="460,310 740,310 820,420 380,420" fill="#e8b840" opacity="0.18" filter="url(#lightBlur)"/>
+
+  <!-- Light diffusing across ceiling and walls -->
+  <ellipse cx="600" cy="150" rx="350" ry="200" fill="url(#floorGlow)" filter="url(#lightBlur)"/>
+
+  <!-- Window frame — vertical and horizontal muntins -->
+  <!-- Outer frame -->
+  <rect x="428" y="28" width="344" height="284" rx="2" fill="none" stroke="#3a2810" stroke-width="6"/>
+  <!-- Vertical center muntin -->
+  <rect x="597" y="28" width="6" height="284" fill="#3a2810" opacity="0.85"/>
+  <!-- Horizontal center muntin -->
+  <rect x="428" y="167" width="344" height="6" fill="#3a2810" opacity="0.85"/>
+  <!-- Additional horizontal muntin (lower third) -->
+  <rect x="428" y="240" width="344" height="4" fill="#3a2810" opacity="0.6"/>
+  <!-- Frame sill -->
+  <rect x="418" y="308" width="364" height="16" rx="2" fill="#4a3018" opacity="0.9"/>
+
+  <!-- Window sill ledge -->
+  <rect x="390" y="316" width="420" height="20" rx="2" fill="#3a2410" opacity="0.95"/>
+  <rect x="385" y="333" width="430" height="8" rx="1" fill="#2e1c0c" opacity="0.9"/>
+
+  <!-- Object on sill: small rosary / prayer beads suggestion -->
+  <!-- Small circular bead chain curve -->
+  <path d="M490,320 Q530,310 570,318 Q610,325 650,318 Q690,310 720,320" fill="none" stroke="#c8a040" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+  <!-- A few bead circles on the chain -->
+  <circle cx="510" cy="316" r="3.5" fill="#d4a848" opacity="0.8"/>
+  <circle cx="540" cy="312" r="3.5" fill="#d4a848" opacity="0.8"/>
+  <circle cx="570" cy="318" r="4" fill="#c8a040" opacity="0.85"/>
+  <circle cx="600" cy="321" r="3.5" fill="#d4a848" opacity="0.8"/>
+  <circle cx="630" cy="318" r="3.5" fill="#d4a848" opacity="0.8"/>
+  <circle cx="660" cy="314" r="3.5" fill="#d4a848" opacity="0.8"/>
+  <circle cx="690" cy="318" r="4" fill="#c8a040" opacity="0.8"/>
+  <!-- Cross pendant -->
+  <rect x="704" y="318" width="2.5" height="8" fill="#c8a040" opacity="0.75"/>
+  <rect x="701.5" y="321" width="7.5" height="2" fill="#c8a040" opacity="0.75"/>
+
+  <!-- Subtle curtain fabric on sides -->
+  <!-- Left curtain -->
+  <path d="M0,0 Q80,-10 100,420 L0,420 Z" fill="#3a2c1a" opacity="0.85"/>
+  <path d="M0,0 Q60,80 80,200 Q70,300 100,420 L60,420 Q25,300 40,200 Q20,80 0,40 Z" fill="#4a3a22" opacity="0.55"/>
+  <!-- Right curtain -->
+  <path d="M1200,0 Q1120,-10 1100,420 L1200,420 Z" fill="#3a2c1a" opacity="0.85"/>
+  <path d="M1200,0 Q1140,80 1120,200 Q1130,300 1100,420 L1140,420 Q1175,300 1160,200 Q1180,80 1200,40 Z" fill="#4a3a22" opacity="0.55"/>
+
+  <!-- Subtle dust motes in the light -->
+  <circle cx="490" cy="120" r="2" fill="#fff8d0" opacity="0.5"/>
+  <circle cx="550" cy="80" r="1.5" fill="#fff8d0" opacity="0.45"/>
+  <circle cx="630" cy="100" r="2" fill="#fff8d0" opacity="0.4"/>
+  <circle cx="700" cy="140" r="1.5" fill="#fff8d0" opacity="0.45"/>
+  <circle cx="520" cy="200" r="1.5" fill="#fff8d0" opacity="0.4"/>
+  <circle cx="670" cy="180" r="2" fill="#fff8d0" opacity="0.4"/>
+  <circle cx="580" cy="250" r="1.5" fill="#fff8d0" opacity="0.35"/>
+</svg>

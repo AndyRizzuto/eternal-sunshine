@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c8872a"/>
+      <stop offset="50%" stop-color="#e8a84a"/>
+      <stop offset="100%" stop-color="#f5d48a"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a843" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#8b5e1a" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="1"/></filter>
+  </defs>
+
+  <!-- Background sky wash -->
+  <rect width="1200" height="420" fill="url(#sky)"/>
+  <!-- Ground warmth -->
+  <ellipse cx="600" cy="420" rx="700" ry="160" fill="url(#ground)"/>
+
+  <!-- Distant foliage mass, left -->
+  <ellipse cx="120" cy="200" rx="160" ry="130" fill="#a05c14" opacity="0.45" filter="url(#blur1)"/>
+  <!-- Distant foliage mass, right -->
+  <ellipse cx="1080" cy="220" rx="180" ry="120" fill="#b06820" opacity="0.4" filter="url(#blur1)"/>
+
+  <!-- Main tree trunk, left of center -->
+  <rect x="370" y="120" width="14" height="300" fill="#4a2408" rx="4"/>
+  <rect x="364" y="200" width="6" height="180" fill="#5c2e0a" rx="3"/>
+  <!-- Branch left -->
+  <line x1="376" y1="150" x2="290" y2="100" stroke="#4a2408" stroke-width="6" stroke-linecap="round"/>
+  <line x1="376" y1="170" x2="440" y2="110" stroke="#4a2408" stroke-width="5" stroke-linecap="round"/>
+  <line x1="376" y1="200" x2="320" y2="165" stroke="#4a2408" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Foliage clusters on main tree -->
+  <ellipse cx="310" cy="88" rx="75" ry="55" fill="#c8731a" opacity="0.9"/>
+  <ellipse cx="290" cy="95" rx="55" ry="40" fill="#e8921a" opacity="0.7"/>
+  <ellipse cx="445" cy="98" rx="80" ry="60" fill="#b85c10" opacity="0.85"/>
+  <ellipse cx="460" cy="90" rx="60" ry="45" fill="#d4882a" opacity="0.75"/>
+  <ellipse cx="376" cy="118" rx="65" ry="48" fill="#cc7a15" opacity="0.8"/>
+
+  <!-- Second trunk, right -->
+  <rect x="760" y="80" width="11" height="340" fill="#5c3010" rx="3"/>
+  <line x1="765" y1="110" x2="840" y2="60" stroke="#5c3010" stroke-width="5" stroke-linecap="round"/>
+  <line x1="765" y1="130" x2="690" y2="80" stroke="#5c3010" stroke-width="4" stroke-linecap="round"/>
+  <line x1="765" y1="160" x2="820" y2="130" stroke="#5c3010" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="845" cy="48" rx="70" ry="50" fill="#d4922a" opacity="0.85"/>
+  <ellipse cx="830" cy="52" rx="50" ry="36" fill="#f0b040" opacity="0.65"/>
+  <ellipse cx="688" cy="68" rx="65" ry="46" fill="#b86018" opacity="0.88"/>
+  <ellipse cx="700" cy="60" rx="50" ry="38" fill="#cc7c20" opacity="0.7"/>
+  <ellipse cx="765" cy="78" rx="58" ry="44" fill="#c87820" opacity="0.8"/>
+
+  <!-- Scattered falling leaves -->
+  <!-- Leaf shapes as simple rotated ellipses -->
+  <ellipse cx="200" cy="160" rx="12" ry="7" fill="#d4880a" opacity="0.9" transform="rotate(-30 200 160)"/>
+  <ellipse cx="540" cy="200" rx="10" ry="6" fill="#e8a020" opacity="0.85" transform="rotate(20 540 200)"/>
+  <ellipse cx="680" cy="250" rx="13" ry="7" fill="#cc6c10" opacity="0.9" transform="rotate(-15 680 250)"/>
+  <ellipse cx="430" cy="300" rx="11" ry="6" fill="#b85810" opacity="0.8" transform="rotate(40 430 300)"/>
+  <ellipse cx="850" cy="180" rx="10" ry="6" fill="#d48820" opacity="0.85" transform="rotate(-25 850 180)"/>
+  <ellipse cx="950" cy="300" rx="12" ry="7" fill="#c07818" opacity="0.8" transform="rotate(15 950 300)"/>
+  <ellipse cx="140" cy="320" rx="9" ry="5" fill="#e09a20" opacity="0.75" transform="rotate(-40 140 320)"/>
+  <ellipse cx="1020" cy="150" rx="11" ry="6" fill="#b85c14" opacity="0.8" transform="rotate(30 1020 150)"/>
+  <ellipse cx="600" cy="140" rx="10" ry="5" fill="#d49020" opacity="0.7" transform="rotate(-10 600 140)"/>
+  <ellipse cx="320" cy="350" rx="12" ry="7" fill="#cc7218" opacity="0.75" transform="rotate(25 320 350)"/>
+
+  <!-- Ground leaf scatter -->
+  <ellipse cx="250" cy="400" rx="18" ry="8" fill="#8b4a10" opacity="0.6" transform="rotate(-5 250 400)"/>
+  <ellipse cx="550" cy="410" rx="16" ry="7" fill="#a05818" opacity="0.55" transform="rotate(10 550 410)"/>
+  <ellipse cx="800" cy="405" rx="20" ry="8" fill="#7a3e0c" opacity="0.5" transform="rotate(-15 800 405)"/>
+  <ellipse cx="1050" cy="412" rx="15" ry="7" fill="#8b4a10" opacity="0.5" transform="rotate(8 1050 412)"/>
+
+  <!-- Soft light haze through trees -->
+  <ellipse cx="600" cy="150" rx="200" ry="120" fill="#f5e0a0" opacity="0.12"/>
+</svg>
