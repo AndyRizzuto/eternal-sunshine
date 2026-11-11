@@ -66,7 +66,7 @@
             <p class="section-subtitle">Finding beauty and meaning in natural cycles</p>
         </div>
 
-        <div class="image-placeholder">
+        <div class="image-placeholder" data-slot="leaves">
             <span class="img-label">Section Image</span>
             Pressed autumn leaves arranged artistically
             <p class="img-suggestion">Suggested: warm golden-hour photograph of autumn leaves — devotional, peaceful</p>
@@ -127,7 +127,7 @@ The purest of art.</div>
             </div>
         </div>
 
-        <div class="image-placeholder">
+        <div class="image-placeholder" data-slot="geese">
             <span class="img-label">Atmospheric Image</span>
             Geese in V formation against a soft autumn sky
             <p class="img-suggestion">Suggested: minimalist photograph of geese in formation — quiet sense of wonder and divine order</p>
@@ -207,7 +207,7 @@ I give thanks when I pray</div>
             <div class="poem-date">— 1998 —</div>
         </div>
 
-        <div class="image-placeholder">
+        <div class="image-placeholder" data-slot="light">
             <span class="img-label">Hope Through Difficulty</span>
             Soft light breaking through storm clouds
             <p class="img-suggestion">Suggested: golden light through stained glass or parting storm clouds — spiritual and uplifting</p>
@@ -305,7 +305,7 @@ What simply counts, is how my time is spent</div>
             <div class="poem-date">— 1998 —</div>
         </div>
 
-        <div class="image-placeholder">
+        <div class="image-placeholder" data-slot="candles">
             <span class="img-label">Time &amp; Reflection</span>
             Candles burning softly in a quiet space
             <p class="img-suggestion">Suggested: votive candles in a church or chapel — contemplative, devotional atmosphere</p>
@@ -382,7 +382,7 @@ cannot die, and through our trials we'll gain.</div>
             </div>
         </div>
 
-        <div class="image-placeholder">
+        <div class="image-placeholder" data-slot="window">
             <span class="img-label">Memory &amp; Presence</span>
             Warm light through a window
             <p class="img-suggestion">Suggested: window light with a rosary or small devotional object on the sill — quiet, tender mood</p>
@@ -499,7 +499,7 @@ But union of souls was never shared.</div>
             <div class="poem-date">— October, 1998 —</div>
         </div>
 
-        <div class="image-placeholder">
+        <div class="image-placeholder" data-slot="lace">
             <span class="img-label">Faded Beauty</span>
             Dried flowers and vintage lace
             <p class="img-suggestion">Suggested: dried flowers resting on aged lace — softly melancholy, the passage of time</p>
@@ -645,6 +645,19 @@ in friendships we have made.</div>
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.poem-container').forEach(el => observer.observe(el));
+
+    // Image slots: if images/<slot>.jpg exists, it replaces the placeholder box.
+    document.querySelectorAll('.image-placeholder[data-slot]').forEach(box => {
+        const img = new Image();
+        img.alt = '';
+        img.onload = () => {
+            box.innerHTML = '';
+            box.style.cssText = 'padding:0;border:0;background:none;overflow:hidden;';
+            img.style.cssText = 'display:block;width:100%;height:auto;';
+            box.appendChild(img);
+        };
+        img.src = 'images/' + box.dataset.slot + '.jpg';   // fails silently: placeholder stays
+    });
 </script>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pick the pictures</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font: 22px/1.4 -apple-system, Helvetica, Arial, sans-serif; background: #fff; color: #111; padding: 16px 16px 220px; max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 30px; margin-bottom: 8px; }
+    .lead { margin-bottom: 28px; }
+    .slot { margin-bottom: 40px; padding-top: 20px; border-top: 4px solid #111; }
+    .slot h2 { font-size: 28px; }
+    .slot .poem { color: #444; margin-bottom: 14px; }
+    .cand { position: relative; display: block; width: 100%; margin-bottom: 18px; padding: 0; border: 6px solid #ccc; border-radius: 14px; background: #eee; overflow: hidden; cursor: pointer; text-align: left; font: inherit; }
+    .cand img { display: block; width: 100%; height: auto; }
+    .cand .num { position: absolute; top: 8px; left: 8px; width: 56px; height: 56px; border-radius: 50%; background: #111; color: #fff; font-size: 34px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .cand.empty { padding: 40px 16px; color: #666; text-align: center; cursor: default; }
+    .cand.empty .num { position: static; margin: 0 auto 8px; }
+    .cand.picked { border-color: #1a8f3c; }
+    .cand.picked::after { content: 'PICKED'; position: absolute; top: 8px; right: 8px; background: #1a8f3c; color: #fff; font-weight: 700; padding: 8px 14px; border-radius: 8px; }
+    .none { display: block; width: 100%; padding: 16px; font: inherit; border: 3px solid #999; border-radius: 12px; background: #fff; }
+    .none.picked { border-color: #1a8f3c; background: #e8f6ec; }
+    #summary { position: fixed; left: 0; right: 0; bottom: 0; background: #111; color: #fff; padding: 14px 16px; max-height: 40vh; overflow-y: auto; }
+    #summary b { color: #ffd34d; }
+    #summary .row { display: flex; justify-content: space-between; gap: 12px; }
+</style>
+</head>
+<body>
+
+<h1>Pick the pictures</h1>
+<p class="lead">For each spot below, tap the picture you like best. You can change your mind. Your picks show at the bottom.</p>
+
+<div id="slots"></div>
+
+<div id="summary"></div>
+
+<script>
+    // Candidates live in images/candidates/<slot>-1.jpg, -2.jpg, -3.jpg (add as many as you like, up to 4).
+    // The chosen image is later copied to images/<slot>.jpg, which the book picks up automatically.
+    const SLOTS = [
+        { id: 'leaves',  name: 'Autumn leaves',        poem: 'Next to: Colors of Fall' },
+        { id: 'geese',   name: 'Geese in the sky',     poem: 'Next to: Observing Autumn' },
+        { id: 'light',   name: 'Light after the storm', poem: 'Next to: If and When, Walk On' },
+        { id: 'candles', name: 'Candles',              poem: 'Next to: The Faceless Clock' },
+        { id: 'window',  name: 'Window and rosary',    poem: 'Next to: Missing My Son' },
+        { id: 'lace',    name: 'Dried flowers and lace', poem: 'Next to: Ashes of the Vow' }
+    ];
+    const MAX = 4;
+    let picks = {};
+    try { picks = JSON.parse(localStorage.getItem('picks') || '{}'); } catch (e) {}
+
+    function save() { try { localStorage.setItem('picks', JSON.stringify(picks)); } catch (e) {} }
+
+    function render() {
+        document.querySelectorAll('.cand').forEach(b => b.classList.toggle('picked', picks[b.dataset.slot] === b.dataset.n));
+        document.querySelectorAll('.none').forEach(b => b.classList.toggle('picked', picks[b.dataset.slot] === 'none'));
+        document.getElementById('summary').innerHTML = '<b>My picks</b>' + SLOTS.map(s =>
+            '<div class="row"><span>' + s.name + '</span><span>' + (picks[s.id] === 'none' ? 'none' : picks[s.id] || '…') + '</span></div>').join('');
+    }
+
+    function choose(slot, n) { picks[slot] = n; save(); render(); }
+
+    const root = document.getElementById('slots');
+    SLOTS.forEach(s => {
+        const sec = document.createElement('section');
+        sec.className = 'slot';
+        sec.innerHTML = '<h2>' + s.name + '</h2><p class="poem">' + s.poem + '</p>';
+        for (let n = 1; n <= MAX; n++) {
+            const b = document.createElement('button');
+            b.className = 'cand'; b.dataset.slot = s.id; b.dataset.n = String(n);
+            b.innerHTML = '<span class="num">' + n + '</span>';
+            const img = new Image();
+            img.alt = s.name + ' option ' + n;
+            img.onload = () => { b.appendChild(img); b.onclick = () => choose(s.id, String(n)); };
+            img.onerror = () => { b.remove(); };   // no such candidate: hide it
+            img.src = 'images/candidates/' + s.id + '-' + n + '.jpg';
+            b.style.display = 'none';
+            img.addEventListener('load', () => { b.style.display = 'block'; });
+            sec.appendChild(b);
+        }
+        const none = document.createElement('button');
+        none.className = 'none'; none.dataset.slot = s.id; none.textContent = 'None of these';
+        none.onclick = () => choose(s.id, 'none');
+        sec.appendChild(none);
+        root.appendChild(sec);
+    });
+    render();
+</script>
+</body>
+</html>
