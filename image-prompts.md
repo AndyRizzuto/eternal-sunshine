@@ -8,6 +8,15 @@ After Carly picks, copy the winner to `images/<slot>.jpg`. The book swaps the pl
 Check every image for wrong small details (goose wings, rosary beads, candle holders, any stray text).
 The author photo should be a real photo, not generated.
 
+## Which generator to use (comparison test)
+
+Reviews I found rate Nano Banana (Gemini) highly for photorealism, and rate ChatGPT's image tool (GPT Image) close to it.
+Sources disagree on which is better, so test both before committing:
+
+1. Run the `leaves` prompt (shared style + slot prompt) in Nano Banana (Gemini app or Google AI Studio) and in ChatGPT's image tool.
+2. Make 3 to 4 images in each. Compare on lighting, texture and small details.
+3. Use the winner for the rest of the slots. Keep the same generator for all six so the pictures look like a set.
+
 ## Shared style
 
 ```
